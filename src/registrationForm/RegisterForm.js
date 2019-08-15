@@ -10,7 +10,10 @@ class RegisterForm extends React.Component {
       this.state = {
         fields: {},
         errors: {},
-        fromLocal:''
+        fromLocal:'',
+        showEnterNote: false,
+        showReview: false
+
       }
       this.handleChange = this.handleChange.bind(this);
       this.submituserRegistrationForm = this.submituserRegistrationForm.bind(this);
@@ -20,6 +23,12 @@ class RegisterForm extends React.Component {
     // Delete from local storage .
     handleDeleteClick(e) {
         localStorage.removeItem('registerData');
+        this.setState({
+            showReview: !this.state.showReview 
+          });
+          this.setState({
+            showEnterNote: !this.state.showEnterNote 
+          });
     }
 
 
@@ -46,6 +55,15 @@ class RegisterForm extends React.Component {
           fields["noteDecore"] = "";
           this.setState({fields:fields});
           //alert("Form submitted");
+          this.setState({
+            showReview: !this.state.showReview 
+          });
+          this.setState({
+            showEnterNote: !this.state.showEnterNote 
+          });
+
+
+
       }
     }
 
@@ -105,7 +123,9 @@ class RegisterForm extends React.Component {
     //const myData = localStorage.getItem('registerData');
     // set the state with the data
     //this.setState({myData});
-
+    this.setState({
+            showEnterNote: !this.state.showEnterNote 
+          });
     }
 
 
@@ -145,7 +165,7 @@ class RegisterForm extends React.Component {
 
     return (
               <div id="main-registration-container">
-                    <div id="register">
+                    <div id="register" style={{ display: this.state.showEnterNote ? "block" : "none" }}>
                         <h3>Create structure note</h3>
                           <form method="post"  name="userRegistrationForm"  onSubmit= {this.submituserRegistrationForm} >
 
@@ -181,7 +201,7 @@ class RegisterForm extends React.Component {
                           </form>
                     </div>
 
-                    <div className= "viewNote" >
+                    <div className= "viewNote"  style={{ display: this.state.showReview ? "block" : "none" }} >
                         
                         <h3>Review structure note</h3>
 
