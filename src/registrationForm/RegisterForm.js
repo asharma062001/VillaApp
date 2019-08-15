@@ -1,6 +1,4 @@
 import React from 'react';
-import {reactLocalStorage} from 'reactjs-localstorage';
-import ContentEditable from 'react-contenteditable'
 import './style.css';
 
 
@@ -143,7 +141,7 @@ class RegisterForm extends React.Component {
 
 
     if (isLoggedIn) {
-        console.log("uname", isLoggedIn.fields.username);
+        //console.log("uname", isLoggedIn.fields.username);
         //Set value in local storage;
         uname =  isLoggedIn.fields.username;
         dateOfVisit = isLoggedIn.fields.dov;
