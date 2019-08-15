@@ -216,21 +216,30 @@ class RegisterForm extends React.Component {
                                 <div  className="textAlign" > <label><b>Owner : </b> {Owner} </label><br/></div>
 
                                 <div  className="textAlign" ><b> A note about the surrounding area of the villa : </b>
-                                    <div> {noteSurround} </div>
+                                  
                                     <ContentEditable
                                         html={noteSurround}
-                                        data-column="noteSurround"
                                         className="content-editable"
                                         onChange={this.handleContentEditable}
                                       />
                                 </div>
 
                                 <div  className="textAlign" > <b>A note about the construction quality of the villa :</b> 
-                                      <div> {noteConst} </div>
+                                    
+                                      <ContentEditable
+                                        html={noteConst}
+                                        className="content-editable"
+                                        onChange={this.handleContentEditable}
+                                      />
                                 </div>
 
                                 <div  className="textAlign" ><b> A note about the villa decore :</b> 
-                                      <div> {noteDecore} </div>
+                                      
+                                      <ContentEditable
+                                        html={noteDecore}
+                                        className="content-editable"
+                                        onChange={this.handleContentEditable}
+                                      />
                                 </div>
 
                                 <button className="btn" onClick={this.handleDeleteClick}>Delete All</button>
