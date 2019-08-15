@@ -183,7 +183,7 @@ class RegisterForm extends React.Component {
                                 <div className="errorMsg">{this.state.errors.dov}</div>
         
                                 <label>Pincode</label>
-                                <input type="number"  name="Pincode" value={this.state.fields.Pincode} onChange={this.handleChange} />
+                                <input type="number" pattern="/^\d{6}$/"  name="Pincode" value={this.state.fields.Pincode} onChange={this.handleChange} />
                                 <div className="errorMsg">{this.state.errors.Pincode}</div>
         
 
@@ -215,7 +215,7 @@ class RegisterForm extends React.Component {
                                 <div  className="textAlign" > <label><b>Pincode : </b> {pincode} </label><br/></div>
                                 <div  className="textAlign" > <label><b>Owner : </b> {Owner} </label><br/></div>
 
-                                <div  className="textAlign" ><b> A note about the surrounding area of the villa : </b>
+                                <div title="I" className="textAlign tooltip" ><b> A note about the surrounding area of the villa : </b>
                                   
                                     <ContentEditable
                                         html={noteSurround}
@@ -224,7 +224,7 @@ class RegisterForm extends React.Component {
                                       />
                                 </div>
 
-                                <div  className="textAlign" > <b>A note about the construction quality of the villa :</b> 
+                                <div  title="I" className="textAlign tooltip" > <b>A note about the construction quality of the villa :</b> 
                                     
                                       <ContentEditable
                                         html={noteConst}
@@ -233,7 +233,7 @@ class RegisterForm extends React.Component {
                                       />
                                 </div>
 
-                                <div  className="textAlign" ><b> A note about the villa decore :</b> 
+                                <div  title="I" className="textAlign tooltip" ><b> A note about the villa decore :</b> 
                                       
                                       <ContentEditable
                                         html={noteDecore}

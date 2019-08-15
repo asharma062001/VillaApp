@@ -63,3 +63,31 @@ form input {
   width: 122px;
   margin-top:20px;
 }
+.tooltip{
+    display: inline;
+    position: relative;
+}
+.tooltip:hover:after{
+    background: #333;
+    background: rgba(0,0,0,.8);
+    border-radius: 3px;
+    bottom: 26px;
+    color: #fff;
+    content: attr(title);
+    left: 20%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 10px;
+}
+content: attr(title);
+.tooltip:hover:before{
+    border: solid;
+    border-color: #333 transparent;
+    border-width: 2px 2px 0 2px;
+    bottom: 20px;
+    content: "";
+    left: 50%;
+    position: absolute;
+    z-index: 99;
+}
