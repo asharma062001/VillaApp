@@ -1,4 +1,5 @@
 import React from 'react';
+import ContentEditable from 'react-contenteditable'
 import './style.css';
 
 
@@ -6,16 +7,17 @@ class RegisterForm extends React.Component {
     constructor() {
       super();
       this.state = {
-        fields: {},
+        fields: {username: '',dov: '',Pincode: '',Owner: '',noteSurround: '',noteConst: '',noteDecore: ''},
         errors: {},
         fromLocal:'',
         showEnterNote: false,
         showReview: false
-
       }
+
       this.handleChange = this.handleChange.bind(this);
       this.submituserRegistrationForm = this.submituserRegistrationForm.bind(this);
       this.handleDeleteClick = this.handleDeleteClick.bind(this);
+      this.handleContentEditable = this.handleContentEditable.bind(this);
     };
 
     // Delete from local storage .
@@ -27,6 +29,11 @@ class RegisterForm extends React.Component {
           this.setState({
             showEnterNote: !this.state.showEnterNote 
           });
+    }
+
+    // Delete from local storage .
+    handleContentEditable(e) {
+      console.log("onchange",e);
     }
 
 
@@ -209,7 +216,13 @@ class RegisterForm extends React.Component {
                                 <div  className="textAlign" > <label><b>Owner : </b> {Owner} </label><br/></div>
 
                                 <div  className="textAlign" ><b> A note about the surrounding area of the villa : </b>
-                                      <div> {noteSurround} </div>
+                                    <div> {noteSurround} </div>
+                                    <ContentEditable
+                                        html={noteSurround}
+                                        data-column="noteSurround"
+                                        className="content-editable"
+                                        onChange={this.handleContentEditable}
+                                      />
                                 </div>
 
                                 <div  className="textAlign" > <b>A note about the construction quality of the villa :</b> 
